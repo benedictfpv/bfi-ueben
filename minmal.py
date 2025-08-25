@@ -29,14 +29,4 @@ def format_messages(system, history, user_msg):
     text += "<|assistant|>\n"
     return text
 
-while True:
-    user = input("You: ")
-    if user.strip().lower() in {"quit", "exit"}:
-        break
-    prompt = format_messages(system_prompt, history, user)
-    out = chat(prompt)[0]["generated_text"]
-    reply = out.split("<|assistant|>")[-1].strip()
-    reply = reply.split("####")[0]
-    print(f"Bot: {reply}\n")
-    history.append({"role": "user", "content": user})
-    history.append({"role": "assistant", "content": reply})
+print("TEST")
